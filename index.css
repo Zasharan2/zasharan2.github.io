@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+    /* color scheme */
+    background-color: rgb(17, 0, 0);
+    color: rgb(255, 221, 221);
+
+    /* font */
+    font-family: 'Montserrat', sans-serif;
+
+    /* text */
+    text-align: center;
+
+    margin: 0;
+}
+
+h1 {
+    padding-top: 1em;
+    padding-bottom: 1em;
+    font-size: 2.5em;
+    background-color: white;
+    width: 100%;
+    color: rgb(51, 8, 8);
+    opacity: 90%;
+}
+
+h3 {
+    padding-top: 0.5em;
+}
+
+p {
+    margin-left: 5em;
+    margin-right: 5em;
+    margin-top: 0.2em;
+    margin-bottom: 0.8em;
+    padding: 0.5em;
+    font-size: 1.2em;
+}
+
+.overlay {
+    /* behind everything else */
+    z-index: 1;
+
+    position: absolute;
+
+    /* dimensions */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#main-container {
+    /* in front of overlay */
+    z-index: 2;
+
+    position: relative;
+}
+
+.backbox {
+    background-color: rgb(32, 0, 0);
+    border-radius: 0.7em;
+    padding: 0.8em;
+}
+
+.smallbackbox {
+    background-color: rgb(32, 0, 0);
+    border-radius: 0.7em;
+    padding: 0.8em;
+    display: inline-block;
+}
+
+#navigation-bar {
+    z-index: 3;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: rgb(65, 7, 7);
+    overflow: hidden;
+    opacity: 90%;
+}
+
+a {
+    color: rgb(131, 16, 16);
+}
+
+a:visited {
+    color: rgb(131, 16, 16);
+}
+
+#navigation-bar a {
+    float: left;
+    display: block;
+    text-align: center;
+    padding: 1.2em;
+    color: rgb(255, 221, 221);
+    text-decoration: none;
+    background-color: rgb(65, 7, 7);
+    transition-duration: 0.3s;
+}
+
+#navigation-bar a:hover {
+    background-color: rgb(51, 8, 8);
+}
+
+#navigation-bar a#navbar-selected {
+    background-color: rgb(121, 15, 15);
+}
+
+#navigation-bar a#navbar-selected:hover {
+    background-color: rgb(94, 11, 11);
+}
+
+img {
+    width: 10em;
+    border: rgb(51, 8, 8) solid;
+    border-width: 1em;
+    border-radius: 2em;
+}
+
+.event-button {
+    margin-left: 5em;
+    margin-right: 5em;
+    margin-top: 0.2em;
+    margin-bottom: 0.8em;
+    padding: 0.5em;
+    font-size: 1.2em;
+    text-decoration: none;
+    color: rgb(255, 221, 221) !important;
+    background-color: rgb(117, 9, 9);
+    border-radius: 0.7em;
+    padding-bottom: 0.8em;
+    padding-right: 0.8em;
+    padding-left: 0.8em;
+    padding-top: 0.2em;
+    display: inline-block;
+    transition-duration: 0.3s;
+    margin: 0.3em;
+}
+
+.event-button:hover {
+    background-color: rgb(73, 5, 5);
+}
