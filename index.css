@@ -58,15 +58,23 @@ p {
 }
 
 .backbox {
-    background-color: rgb(32, 0, 0);
+    background-color: rgb(50, 0, 0);
     border-radius: 0.7em;
     padding: 0.8em;
 }
 
 .smallbackbox {
-    background-color: rgb(32, 0, 0);
+    background-color: rgb(50, 0, 0);
     border-radius: 0.7em;
     padding: 0.8em;
+    display: inline-block;
+}
+
+.headerbackbox {
+    background-color: rgb(50, 0, 0);
+    border-radius: 0.7em;
+    padding-left: 0.8em;
+    padding-right: 0.8em;
     display: inline-block;
 }
 
