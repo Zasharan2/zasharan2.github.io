@@ -94,6 +94,46 @@ class Ball {
     }
 }
 
+function sweepAndPrune() {
+    var runningIntersectRegionList = [];
+    var intersectRegionRight = 0;
+    balls.sort((a, b) => (a.pos.x - a.r) - (b.pos.x - b.r));
+    // console.log(balls[0].pos.x);
+    runningIntersectRegionList.push([balls[0]]);
+    intersectRegionRight = balls[0].pos.x + balls[0].r;
+    for (var i = 1; i < balls.length; i++) {
+        if (balls[i].pos.x - balls[i].r < intersectRegionRight) {
+            runningIntersectRegionList[runningIntersectRegionList.length - 1].push(balls[i]);
+            if (balls[i].pos.x + balls[i].r > intersectRegionRight) {
+                intersectRegionRight = balls[i].pos.x + balls[i].r;
+            }
+        } else {
+            runningIntersectRegionList.push([balls[i]]);
+            intersectRegionRight = balls[i].pos.x + balls[i].r;
+        }
+    }
+    return runningIntersectRegionList;
+}
+
+function collideBalls() {
+    var prunedList = sweepAndPrune();
+    for (var i = 0; i < prunedList.length; i++) {
+        for (var j = 0; j < prunedList[i].length; j++) {
+            for (var k = j + 1; k < prunedList[i].length; k++) {
+                prunedList[i][j].collideOther(prunedList[i][k]);
+            }
+        }
+    }
+}
+
+function handleCollisions() {
+    collideBalls();
+    for (var i = 0; i < balls.length; i++) {
+        balls[i].collideMouse();
+        balls[i].collideWall();
+    }
+}
+
 var lastUpdate = Date.now();
 var myInterval = setInterval(tick, 0);
 
@@ -136,17 +176,10 @@ function update(deltaTime) {
 
     ctx.globalAlpha = 0.2;
 
+    handleCollisions();
+
     for (var i = 0; i < balls.length; i++) {
-        for (var j = 0; j < balls.length; j++) {
-            if (i != j) {
-                balls[i].collideOther(balls[j]);
-            }
-        }
-        balls[i].collideMouse();
-        balls[i].collideWall();
-
         balls[i].move(deltaTime);
-
         balls[i].render();
     }
 
