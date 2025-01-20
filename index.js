@@ -33,7 +33,7 @@ class Ball {
         this.col = col;
     }
 
-    move(dt) {
+    move() {
         this.nextPos.x = ((2 * this.pos.x) - this.prevPos.x);
         this.nextPos.y = ((2 * this.pos.y) - this.prevPos.y);
 
@@ -169,16 +169,16 @@ function update(deltaTime) {
         balls.pop();
     }
 
+    handleCollisions();
+
     ctx.beginPath();
     ctx.fillStyle = "#220000ff";
     ctx.fillRect(0, 0, c.width, c.height);
 
     ctx.globalAlpha = 0.2;
 
-    handleCollisions();
-
     for (var i = 0; i < balls.length; i++) {
-        balls[i].move(deltaTime);
+        balls[i].move();
         balls[i].render();
     }
 
