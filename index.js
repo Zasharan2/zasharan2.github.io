@@ -98,7 +98,6 @@ function sweepAndPrune() {
     var runningIntersectRegionList = [];
     var intersectRegionRight = 0;
     balls.sort((a, b) => (a.pos.x - a.r) - (b.pos.x - b.r));
-    // console.log(balls[0].pos.x);
     runningIntersectRegionList.push([balls[0]]);
     intersectRegionRight = balls[0].pos.x + balls[0].r;
     for (var i = 1; i < balls.length; i++) {
